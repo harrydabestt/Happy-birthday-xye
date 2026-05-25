@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Xye 💜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+overflow-x:hidden;
+color:white;
+min-height:100vh;
+position:relative;
+}
+
+/* PAGE SYSTEM */
+
+.page{
+display:none;
+min-height:100vh;
+position:relative;
+}
+
+#lockPage{
+display:block;
+}
+
+/* CONTAINER */
+
+.container{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+position:relative;
+z-index:2;
+}
+
+/* CARD */
+
+.card{
+width:100%;
+max-width:950px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:30px;
+padding:50px;
+text-align:center;
+box-shadow:0 0 35px rgba(0,0,0,0.4);
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0px);
+}
+}
+
+/* TITLES */
+
+h1{
+font-size:3rem;
+margin-top:10px;
+font-weight:700;
+background:linear-gradient(to right,#c084fc,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+margin-top:15px;
+font-size:1.1rem;
+opacity:0.85;
+line-height:1.8;
+}
+
+/* BUTTONS */
+
+button{
+margin-top:35px;
+padding:16px 40px;
+font-size:1rem;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#9333ea,#3b82f6);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 25px rgba(147,51,234,0.5);
+}
+
+button:hover{
+transform:scale(1.07);
+box-shadow:0 0 40px rgba(147,51,234,0.8);
+}
+
+/* INPUT */
+
+input{
+margin-top:30px;
+padding:16px;
+width:280px;
+border:none;
+outline:none;
+border-radius:15px;
+font-size:1rem;
+text-align:center;
+background:rgba(255,255,255,0.1);
+color:white;
+}
+
+/* HERO IMAGE */
+
+.hero-img{
+width:180px;
+height:180px;
+margin:auto;
+border-radius:50%;
+overflow:hidden;
+border:5px solid #a855f7;
+box-shadow:0 0 35px #a855f7;
+animation:float 5s ease-in-out infinite;
+}
+
+.hero-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* MESSAGE */
+
+.message{
+margin-top:40px;
+text-align:left;
+line-height:1.9;
+font-size:1.05rem;
+display:none;
+animation:fadeIn 1.5s ease;
+}
+
+/* MEMORY GALLERY */
+
+.gallery{
+margin-top:50px;
+display:none;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:22px;
+transition:0.4s;
+box-shadow:0 0 20px rgba(255,255,255,0.12);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px rgba(168,85,247,0.5);
+}
+
+/* FLOATING RANDOM BACKGROUND PICTURES */
+
+.bg-pic{
+position:absolute;
+width:120px;
+height:120px;
+border-radius:20px;
+object-fit:cover;
+opacity:0.18;
+animation:float 10s ease-in-out infinite;
+box-shadow:0 0 20px rgba(255,255,255,0.2);
+z-index:1;
+}
+
+.bg1{top:5%;left:4%;}
+.bg2{top:15%;right:5%;}
+.bg3{top:35%;left:10%;}
+.bg4{top:50%;right:8%;}
+.bg5{top:72%;left:6%;}
+.bg6{top:82%;right:10%;}
+.bg7{top:25%;left:42%;}
+.bg8{top:60%;left:40%;}
+.bg9{top:8%;left:70%;}
+.bg10{top:78%;left:70%;}
+
+@keyframes float{
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-15px) rotate(2deg);
+}
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.card{
+padding:30px 20px;
+}
+
+h1{
+font-size:2.2rem;
+}
+
+.bg-pic{
+width:80px;
+height:80px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page" id="lockPage">
+
+<div class="container">
+
+<div class="card">
+
+<h1>Private Surprise 🔒</h1>
+
+<p class="subtitle">
+Only Xye can enter this little surprise ✨
+</p>
+
+<input
+type="password"
+id="passcode"
+placeholder="Enter Passcode"
+/>
+
+<br>
+
+<button onclick="checkPasscode()">
+Unlock 💜
+</button>
+
+<p id="errorText" style="
+margin-top:20px;
+color:#ff9aa2;
+display:none;
+font-weight:500;
+">
+Wrong passcode 😭
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="page" id="page1">
+
+<div class="container">
+
+<div class="card">
+
+<h1>Happy Birthday Xye 🎉</h1>
+
+<p class="subtitle">
+Another year older... and somehow still surviving everyone around you 😭💜<br>
+That honestly deserves its own award 🏆😂
+</p>
+
+<div style="font-size:5rem;margin-top:30px;">
+🕯️ 🎂 🕯️
+</div>
+
+<button onclick="nextPage('page2')">
+Next ➜
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="page" id="page2">
+
+<div class="container">
+
+<div class="card">
+
+<h1>Open The Gift? 🎁</h1>
+
+<p class="subtitle">
+There is something waiting for you, Xye 💜
+</p>
+
+<div style="margin-top:40px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+
+<button onclick="nextPage('mainPage')">
+Yes 💜
+</button>
+
+<button onclick="nextPage('noPage')">
+No 🙈
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="page" id="noPage">
+
+<div class="container">
+
+<div class="card">
+
+<h1>Please Pretty? 🥺</h1>
+
+<p class="subtitle">
+You really should open it 😭💜
+</p>
+
+<button onclick="nextPage('page2')">
+Back ↩
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="page" id="mainPage">
+
+<img src="bg 1.jpg" class="bg-pic bg1">
+<img src="bg 2.jpg" class="bg-pic bg2">
+<img src="bg3.jpg" class="bg-pic bg3">
+<img src="bg4.jpg" class="bg-pic bg4">
+<img src="bg5.jpg" class="bg-pic bg5">
+<img src="bg6.webp" class="bg-pic bg6">
+<img src="bg7.jpg" class="bg-pic bg7">
+<img src="bg8.png" class="bg-pic bg8">
+<img src="bg9.png" class="bg-pic bg9">
+<img src="bg10.jpg" class="bg-pic bg10">
+
+<div class="container">
+
+<div class="card">
+
+<div class="hero-img">
+<img src="main.jpg">
+</div>
+
+<h1>For Xye 💜</h1>
+
+<p class="subtitle">
+A small appreciation for someone hardworking, inspiring, and truly wonderful ✨
+</p>
+
+<button onclick="showMessage()">
+Open The Message ✨
+</button>
+
+<div class="message" id="message">
+
+<p>
+
+🎉 Dear Xye, 🎉
+
+<br><br>
+
+First of all… happy birthday 😭💜
+
+Another year older, wiser, and somehow still surviving everyone around you deserves an award honestly 🏆😂
+
+I hope today brings you lots of happiness, peace, good memories, and at least one moment where you forget all the stress and just smile genuinely ✨
+
+<br><br>
+
+I honestly don’t think people say this enough to you, Xye, but you truly deserve so much appreciation for everything you do 💜
+
+You work incredibly hard, you handle responsibilities with so much patience and maturity, and even when things get stressful, you still manage to stay strong for everyone around you. That’s something really admirable 🌸
+
+<br><br>
+
+I’ve always respected how dedicated and hardworking you are. No matter how busy things get, you still give your best effort, and that says a lot about the kind of person you are ✨
+
+Being a higher-up isn’t easy at all because people depend on you, expectations are high, and there’s always pressure to manage things properly. But despite all that, you still continue to help others, guide people, and put time and energy into making everything better 💫
+
+That takes real strength.
+
+<br><br>
+
+I also want to thank you genuinely for everything you’ve done 🤍
+
+Whether it’s helping out, listening, supporting others, or simply being there when needed, your efforts never go unnoticed.
+
+Sometimes hardworking people don’t hear “thank you” enough because everyone gets used to them always being reliable, but I hope you know that your presence and efforts really do matter 🌷
+
+<br><br>
+
+You’ve created an impact on people around you in ways you probably don’t even realize.
+
+Your determination, kindness, and consistency inspire others more than you think 💜
+
+Even on days where you may feel tired, stressed, or unappreciated, please remember that there are people who truly value you and admire how much effort you put into everything ✨
+
+<br><br>
+
+I’m really grateful to know someone like you, Xye 🌸
+
+You deserve happiness, peace, success, and all the good things that come your way because you genuinely earn them through your hard work and the way you treat people.
+
+I hope you continue achieving amazing things, but at the same time, I hope you also remember to take care of yourself and rest whenever you need to 🫶
+
+<br><br>
+
+Thank you again for being such a hardworking, dependable, and wonderful person 💫
+
+Keep shining and keep being you, because honestly, people like you are rare 💜✨
+
+<br><br>
+
+And once again...
+
+HAPPY BIRTHDAYYY YYEEE 🎂🎉💜
+
+</p>
+
+</div>
+
+<div class="gallery" id="gallery">
+
+<img src="memory1.png">
+<img src="memory2.png">
+<img src="memory 3.png">
+<img src="memory 4.png">
+<img src="memory5.png">
+<img src="memory 6.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="bgMusic" loop>
+<source src="nastelbom-happy-birthday-469282.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+function nextPage(pageId){
+
+const pages = document.querySelectorAll('.page');
+
+pages.forEach(page => {
+page.style.display = 'none';
+});
+
+document.getElementById(pageId).style.display = 'block';
+
+window.scrollTo(0,0);
+
+}
+
+function checkPasscode(){
+
+const pass = document.getElementById('passcode').value;
+
+const error = document.getElementById('errorText');
+
+const music = document.getElementById('bgMusic');
+
+if(pass === "xye you are the best"){
+
+// Play background music right away when correctly unlocked
+music.play().catch(err => console.log("Audio play delayed by browser restrictions:", err));
+
+nextPage('page1');
+
+}else{
+
+error.style.display = 'block';
+
+}
+
+}
+
+function showMessage(){
+
+const msg = document.getElementById('message');
+
+const gallery = document.getElementById('gallery');
+
+msg.style.display = 'block';
+
+gallery.style.display = 'grid';
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:'smooth'
+});
+
+}
+
+</script>
+
+</body>
+</html>
